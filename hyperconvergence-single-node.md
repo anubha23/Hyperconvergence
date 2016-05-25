@@ -93,6 +93,56 @@ screen
 
 hosted-engine --deploy
 
+Through the course of this setup, you will come across a lot of options to choose from with a default option suggested to you in square brackets. Pressing 'Enter' without selecting an option will imply that you wish to go ahead with the default option.
+
+We'll do that for most options. 
+
+<insert screenshot of all commands>
+
+
+For configuring IP tables however, we say 'No', this is a temporary workaround as saying 'Yes' results into gluster ports being left unopened.
+
+<insert screenshot>
+
+We want to configure oVirt with both Virt and Gluster mode. Automatically executing engine setup configures oVirt in Virt mode alone. So, when we're asked if we want to automatically execute engine setup, we say 'No'.
+
+<insert screenshot>
+
+We'll add a dummy entry to the /etc/hosts file temporarily. 
+
+<insert screenshot>
+
+When asked to enter the domain name to be used for the engine appliance, we'll enter this domain name and continue till the setup launches the setup and asks us to execute engine-setup
+
+<insert screenshot>
+
+Here, we launch our VM using:
+
+remote-viewer vnc://10.209.64.36:5900
+
+10.209.64.36 is the IP of our hostmachine and 5900 is the port number required for remote access to our VM.
+
+Once the VM is launched, entering this command will help us know the IP of the VM:
+
+ip addr
+
+
+Once the IP of our VM is obtained, we correct the entry in the /etc/hosts file of our host machine. The dummy IP address will be replaced by this IP.
+
+<insert screenshots>
+
+At this point, we should have two entries in our /etc/hosts file - one pointing to our local host machine and the other one to our VM.
+
+<insert screenshot>
+
+We'll copy both these entries and paste them in the /etc/hosts file of the VM.
+
+<insert screenshot>
+
+We have to now run 'engine-setup' on this VM (terminal) using the command 'engine-setup' and once it's complete, we go back to the terminal on our host machine to continue with the rest of the setup.
+
+<insert screenshot>
+
 
 
 
